@@ -18,10 +18,11 @@ def play_game(N):
     player1_wins = 0
 
     for i in range(N):
-        summa = discrete_random_variable(probabilities)
-        if summa == 7 or summa == 11:
+        summa_first = discrete_random_variable(probabilities)
+        summa_second = discrete_random_variable(probabilities)
+        if summa_first > summa_second:
             player1_wins += 1
-        elif summa == 2 or summa == 3 or summa == 12:
+        elif summa_first < summa_second:
             player1_wins -= 1
 
     return player1_wins / N
@@ -36,10 +37,11 @@ def roll_dice():
 def play_game_with_dices(N):
     player1_wins2 = 0
     for i in range(N):
-        summa = roll_dice()
-        if summa == 7 or summa == 11:
+        summa_first = roll_dice()
+        summa_second = roll_dice()
+        if summa_first > summa_second:
             player1_wins2 += 1
-        elif summa == 2 or summa == 3 or summa == 12:
+        elif summa_first < summa_second:
             player1_wins2 -= 1
 
     return player1_wins2 / N
